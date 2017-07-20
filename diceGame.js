@@ -154,3 +154,10 @@ function startGame(){
 		console.log("player two loses");
 	}
 }
+function randomizeBackground(){
+var availableImages = ["images/valley.jpg","images/river.jpg","images/finnTreeHouse.jpg"]
+var body = document.getElementsByTagName('body')[0];
+var imageSelector = Math.floor(Math.random()*3);
+body.style.backgroundImage = "url('" +availableImages[imageSelector]+"')";
+}
+window.onload = randomizeBackground();
