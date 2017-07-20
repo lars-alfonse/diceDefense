@@ -1,6 +1,9 @@
 td{
   padding: 10px;
 }
+td:hover{
+  background-color: #d9d9d9;
+}
 th{
   text-align: right;
   padding: 10px;
@@ -14,14 +17,45 @@ tr:hover{
   box-shadow: 5px 5px;
 }
 .resultHeader{
+  font-family: Georgia;
   padding-left: 10px;
-  color: white;
-  text-shadow: 0px 0px 10px;
+  color: black;
+  text-shadow: 1px -1px 1px #e6ccb3;
 }
 .resultText{
+  font-family: Georgia;
   font-size: 20px;
   padding-bottom: 10px;
   padding-left: 10px;
-  color: white;
-  text-shadow: 0px 0px 10px;
+  color: black;
+  text-shadow: 1px -1px 1px #e6ccb3;
+}
+label{
+  cursor: pointer;
+}
+#startGame .buttonImage{
+  opacity: 0;
+  position:relative;
+  top:18px;
+}
+.gameButton{
+  border-radius: 50%
+  color:#996600;
+}
+#startGame .buttonText{
+  position: relative;
+  bottom: 18px;
+  right:  5px;
+  font-family: Georgia;
+  font-size: 20px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  color: black;
+  text-shadow: 1px -1px 1px #e6ccb3;
+}
+#startGame:hover .buttonImage{
+  opacity: 1;
+}
+#startGame:hover .buttonText{
+  opacity: 0;
 }
