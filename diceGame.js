@@ -139,6 +139,10 @@ function startGame(){
 	playerTwoAttack = collectDiceResults(playerTwoAttack);
 	playerTwoDefense = collectDiceResults(playerTwoDefense);
 	playerTwoSpeed = collectDiceResults(playerTwoSpeed);
+	if (playerOneAttack === 0 || playerTwoAttack ===0) {
+		alert("please select at least one attack die");
+		return ;
+	}
 	playerOne.attack = playerOneAttack;
 	playerOne.defense = playerOneDefense;
 	playerOne.speed = playerOneSpeed;
@@ -148,10 +152,10 @@ function startGame(){
 	hitPoints = startCombat(playerOne, playerTwo, hitPoints);
 	}
 	if (hitPoints[0] === 0){
-		console.log("Player one loses");
+		alert("Player one loses");
 	}
 	else{
-		console.log("player two loses");
+		alert("player two loses");
 	}
 }
 function randomizeBackground(){

@@ -10,9 +10,15 @@
 	<link type="text/css" rel="stylesheet" href="diceGame.css"></link>
 </head>
 <body>
+<center>
+<br>
+<br>
+  <h1 style="color: white; text-shadow: 0 1px 0 1px 0 1px; font-family: times;"> DICE FIGHT</h1>
+</center>
 <div class="container">
 <div class="row">
-<div class="col" id="playerOne" style="float: left;">
+<div class="col" id="playerOne" style="float: left; position: relative; top: 10vh;">
+<h1>Player One</h1>
 <table>
 <tr>
 	<form >
@@ -199,12 +205,10 @@
  </form>
 </table>
 <br>
-<div class="resultBox" id="playerOneResults">
-  <p  style="color: white; text-shadow: 1px 1px 1px 1px;"></p>
 </div>
-</div>
-<div class="col" style=" float: right;">
+<div class="col" style=" float: right; position: relative; top: 10vh;">
 <div id="playerTwo">
+<h1>Player Two</h1>
 <table>
 <tr>
 	<form >
@@ -391,16 +395,26 @@
 </form>
 </table>
 <br>
-<div class="resultBox" id="playerTwoResults">
-  <p style="color: white; text-shadow: 1px 1px 1px 1px;"></p>
 </div>
 </div>
 </div>
-</div>
-<br>
-<br>
 <center>
-<button id='startGame'onclick="startGame()" style="border-radius: 10px; color:#996600;"><img src="images/crossSwords.png" class="buttonImage"><p class="buttonText"> FIGHT!!!</p></button>
+<button id='startGame' class="gameButton" onclick="startGame()" style="border-radius: 10px; color:#996600;"><img src="images/crossSwords.png" class="buttonImage"><p class="buttonText"> FIGHT!!!</p>
+</button>
+</center>
+<div class='row'>
+<div class="col-xs-6">
+<div class="resultBox" id="playerOneResults">
+  <p  style="color: white; text-shadow: 1px 1px 1px 1px; float: left; "></p>
+</div>
+</div>
+  <div class="col-xs-6">
+    <div class="resultBox" id="playerTwoResults">
+     <p style="color: white; text-shadow: 1px 1px 1px 1px; float: right;"></p>
+    </div>
+  </div>
+<br>
+<br>
 <script type="text/javascript" src="diceGame.js"></script>
 </body>
 </html>
