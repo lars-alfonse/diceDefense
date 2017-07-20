@@ -16,8 +16,9 @@ function addDice(diceResult){
 	diceTotal = diceResult.reduce(add);
 	return diceTotal;
 }
-function reportStats(){
-
+function reportStats(playerOne, playerTwo){
+	document.getElementById("playerOneResults").innerHTML = "<h1 class='resultHeader'> Player 1:</h1> <br/> <p class='resultText'> Attack: " +playerOne.attack+"<br/> Defense: " +playerOne.defense+"<br/> Speed: " +playerOne.speed+"<br/> Initiative: " +playerOne.initiative+"<br/> Multiplier: " +playerOne.multiplier+"</p>";
+	document.getElementById("playerTwoResults").innerHTML = "<h1 class='resultHeader'>Player 2: </h1> <br/> <p class='resultText'> Attack: " +playerTwo.attack+"<br/> Defense: " +playerTwo.defense+"<br/> Speed: " +playerTwo.speed+"<br/> Initiative: " +playerTwo.initiative+"<br/> Multiplier: " +playerTwo.multiplier+"</p>";
 }
 function collectDiceResults(diceSet){
 		var diceResults;
@@ -46,40 +47,45 @@ function selectPlayerDice(player, type) {
 	}
 	return selectedDiceKit;
 }
-function startCombat(playerOneAttack, playerOneDefense, playerOneSpeed, playerTwoAttack, playerTwoDefense, playerTwoSpeed, hitPoints){
+function startCombat(playerOne, playerTwo, hitPoints){
 	var playerOneInitiative;
 	var playerTwoInitiative;
 	var playerOneAttackMultiplier;
 	var playerTwoAttackMultiplier;
-	playerOneInitiative = determineInitiative(playerOneSpeed, playerTwoSpeed);
-	playerTwoInitiative = determineInitiative(playerTwoSpeed, playerOneSpeed);
-	playerOneAttackMultiplier = determineAttackMultiplier(playerOneSpeed, playerTwoSpeed);
-	playerTwoAttackMultiplier = determineAttackMultiplier(playerTwoSpeed, playerOneSpeed);
-	playerOneAttack =  playerOneAttackMultiplier * playerOneAttack;
-	playerTwoAttack = playerTwoAttackMultiplier * playerTwoAttack;
-	hitPoints = damageStep(playerOneAttack, playerOneDefense, playerOneInitiative, playerTwoAttack, playerTwoDefense, playerTwoInitiative, hitPoints);
+	playerOneInitiative = determineInitiative(playerOne.speed, playerTwo.speed);
+	playerTwoInitiative = determineInitiative(playerTwo.speed, playerOne.speed);
+	playerOneAttackMultiplier = determineAttackMultiplier(playerOne.speed, playerTwo.speed);
+	playerTwoAttackMultiplier = determineAttackMultiplier(playerTwo.speed, playerOne.speed);
+	playerOne.multiplier = playerOneAttackMultiplier;
+	playerTwo.multiplier = playerTwoAttackMultiplier;
+	playerOne.initiative = playerOneInitiative;
+	playerTwo.initiative = playerTwoInitiative;
+	reportStats(playerOne, playerTwo);
+	playerOne.attack =  playerOneAttackMultiplier * playerOne.attack;
+	playerTwo.attack = playerTwoAttackMultiplier * playerTwo.attack;
+	hitPoints = damageStep(playerOne, playerTwo, hitPoints);
 	return hitPoints;
 }
-function damageStep(playerOneAttack, playerOneDefense, playerOneInitiative, playerTwoAttack, playerTwoDefense, playerTwoInitiative, hitPoints){
-	if (playerOneInitiative > playerTwoInitiative) {
-		if (playerOneAttack > playerTwoDefense) {
+function damageStep(playerOne,  playerTwo, hitPoints){
+	if (playerOne.initiative > playerTwo.initiative) {
+		if (playerOne.attack > playerTwo.defense) {
 			hitPoints[1] = hitPoints[1] - 1;
 			}
 		if (hitPoints[1] === 0) {
 			return hitPoints;
 		}
-		else if(playerTwoAttack > playerOneDefense) {
+		else if(playerTwo.attack > playerOne.defense) {
 			hitPoints[0] -= 1;
 		}
 	}
 	else{
-		if (playerTwoAttack > playerOneDefense) {
+		if (playerTwo.attack > playerOne.defense) {
 			hitPoints[0] = hitPoints[0] - 1;
 		}
 		if (hitPoints[0] ===  0) {
 			return hitPoints;
 		}
-		else if(playerOneAttack > playerTwoDefense){
+		else if(playerOne.attack > playerTwo.defense){
 			hitPoints[1] = hitPoints[1] - 1;
 		}
 	}
@@ -90,11 +96,6 @@ function determineInitiative(firstSpeed, secondSpeed){
 	firstSpeed > secondSpeed ? initiative = 1 : initiative = 0;
 	return initiative;
 }
-function determineDefender(firstAttacker){
-	var firstDefender;
-	firstAttacker === "playerOne" ? firstDefender = "playerOne" : firstDefender = "playerTwo";
-	return firstDefender;
-}
 function determineAttackMultiplier(firstSpeed, secondSpeed){
 	var attackMultiplier;
 	attackMultiplier = firstSpeed / secondSpeed;
@@ -103,26 +104,48 @@ function determineAttackMultiplier(firstSpeed, secondSpeed){
 }
 function startGame(){
 	var hitPoints;
+	var playerOne;
+	playerOne = {
+		attack: "",
+		defense: "",
+		speed: "",
+		initiative: "",
+		modifier: "",
+	}
+	var playerTwo;
+	playerTwo = {
+		attack: "",
+		defense: "",
+		speed: "",
+		initiative: "",
+		modifier: "",
+	}
 	hitPoints = [3, 3];
 	var playerOneAttack;
 	var playerOneDefense;
 	var playerOneSpeed;
-	var playerOne = "One";
-	var playerTwo = "Two";
+	var playerOneSelector = "One";
+	var playerTwoSelector = "Two";
 	while (hitPoints[0] > 0 && hitPoints[1] > 0){
-	playerOneAttack = selectPlayerDice(playerOne, "attack");
-	playerOneDefense = selectPlayerDice(playerOne, "defense");
-	playerOneSpeed = selectPlayerDice(playerOne, "speed");
-	var playerTwoAttack = selectPlayerDice(playerTwo, "attack");
-	var playerTwoDefense = selectPlayerDice(playerTwo, "defense");
-	var playerTwoSpeed = selectPlayerDice(playerTwo, "speed");
+	playerOneAttack = selectPlayerDice(playerOneSelector, "attack");
+	playerOneDefense = selectPlayerDice(playerOneSelector, "defense");
+	playerOneSpeed = selectPlayerDice(playerOneSelector, "speed");
+	var playerTwoAttack = selectPlayerDice(playerTwoSelector, "attack");
+	var playerTwoDefense = selectPlayerDice(playerTwoSelector, "defense");
+	var playerTwoSpeed = selectPlayerDice(playerTwoSelector, "speed");
 	playerOneAttack = collectDiceResults(playerOneAttack);
 	playerOneDefense = collectDiceResults(playerOneDefense);
 	playerOneSpeed = collectDiceResults(playerOneSpeed);
 	playerTwoAttack = collectDiceResults(playerTwoAttack);
 	playerTwoDefense = collectDiceResults(playerTwoDefense);
 	playerTwoSpeed = collectDiceResults(playerTwoSpeed);
-		hitPoints = startCombat(playerOneAttack, playerOneDefense, playerOneSpeed, playerTwoAttack, playerTwoDefense, playerTwoSpeed, hitPoints);
+	playerOne.attack = playerOneAttack;
+	playerOne.defense = playerOneDefense;
+	playerOne.speed = playerOneSpeed;
+	playerTwo.attack = playerTwoAttack;
+	playerTwo.defense = playerTwoDefense;
+	playerTwo.speed = playerTwoSpeed;
+	hitPoints = startCombat(playerOne, playerTwo, hitPoints);
 	}
 	if (hitPoints[0] === 0){
 		console.log("Player one loses");
