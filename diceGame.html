@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dice Game</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="vieport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="welcome to diceJack"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link type="text/css" rel="stylesheet" href="diceGame.css"></link>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col" id="playerOne" style="float: left;">
+<table>
+<tr>
+	<form >
+		<th>D20:</th>
+		<td>
+ 			<input id=20  type="radio" name="D20" value=20  class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D20" value= 20 class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D20" value= 20 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+	</form>
+</tr>
+<tr>
+	<form>
+		<th>D12:</th>
+		<td>
+ 			<input type="radio" name="D12" value= 12 class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D12" value= 12 class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D12" value= 12 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+  	</form>
+</tr>
+<form id="secondD12">
+	<tr>
+		<th>D12:</th>
+		<td>
+ 			<input type="radio" name="D12" value= 12 class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D12" value= 12 class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D12" value= 12 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+	</tr>
+</form>
+<tr>
+	<form >
+		<th>D10:</th>
+		<td>
+ 			<input type="radio" name="D10" value= 10 class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D10" value= 10 class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D10" value= 10 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+	</form>
+</tr>
+<tr>
+	<form id="secondD10">
+		<th>D10:</th>
+		<td>
+ 			<input type="radio" name="D10" value= 10 class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D10" value= 10 class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D10" value= 10 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+	</form>
+</tr>
+<tr>
+	<form >
+		<th>D8:</th>
+		<td>
+ 			<input type="radio" name="D8" value= 8  class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D8" value= 8 class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D8" value= 8 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+	</form> 
+</tr>
+<tr>
+	<form >
+		<th>D8:</th>
+		<td>
+ 			<input type="radio" name="D8" value= 8  class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D8" value= 8 class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D8" value= 8 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+	</form>  
+</tr>
+<tr>
+	<form id="firstD6">
+		<th>D6:</th>
+		<td>
+ 			<input type="radio" name="D6" value= 6 class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D6" value= 6  class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D6" value= 6 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+  	</form>
+</tr> 
+<tr>
+	<form id="secondD6">
+		<th>D6:</th>
+		<td>
+ 			<input type="radio" name="D6" value= 6 class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D6" value= 6  class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D6" value= 6 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+  	</form>
+</tr>
+<tr>
+	<form >
+		<th>D6:</th>
+		<td>
+ 			<input type="radio" name="D6" value= 6 class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D6" value= 6 class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D6" value= 6 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+  	</form>
+</tr>
+<tr>
+	<form id="firstD4">
+		<th>D4:</th>
+		<td>
+ 			<input type="radio" name="D4" value= 4 class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D4" value= 4 class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D4" value= 4 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+	</form>
+</tr>
+<tr>
+	<form id="secondD4">
+		<th>D4:</th>
+		<td>
+ 			<input type="radio" name="D4" value= 4 class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D4" value= 4 class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D4" value= 4 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+	</form>
+</tr>
+<tr>
+	<form id="thirdD4">
+		<th>D4:</th>
+		<td>
+ 			<input type="radio" name="D4" value= 4 class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D4" value= 4 class="defense" > <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D4" value= 4 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+  	</form>
+</tr>
+ </form>
+</table>
+<br>
+<div id="playerOneResults">
+  <p></p>
+</div>
+</div>
+<div class="col" style=" float: right;">
+<div id="playerTwo">
+<table>
+<tr>
+	<form >
+		<th>D20:</th>
+		<td>
+ 			<input  type="radio" name="D20" value= 20  class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D20" value= 20 class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D20" value= 20 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+	</form>
+</tr>
+<tr>
+	<form>
+		<th>D12:</th>
+		<td>
+ 			<input type="radio" name="D12" value= 12 class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D12" value= 12 class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D12" value= 12 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+  	</form>
+</tr>
+<form id="secondD12">
+	<tr>
+		<th>D12:</th>
+		<td>
+ 			<input type="radio" name="D12" value= 12 class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D12" value= 12 class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D12" value= 12 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+	</tr>
+</form>
+<tr>
+	<form >
+		<th>D10:</th>
+		<td>
+ 			<input type="radio" name="D10" value= 10 class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D10" value= 10 class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D10" value= 10 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+	</form>
+</tr>
+<tr>
+	<form id="secondD10">
+		<th>D10:</th>
+		<td>
+ 			<input type="radio" name="D10" value= 10 class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D10" value= 10 class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D10" value= 10 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+	</form>
+</tr>
+<tr>
+	<form >
+		<th>D8:</th>
+		<td>
+ 			<input type="radio" name="D8" value= 8  class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D8" value= 8 class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D8" value= 8 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+	</form> 
+</tr>
+<tr>
+	<form >
+		<th>D8:</th>
+		<td>
+ 			<input type="radio" name="D8" value= 8  class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D8" value= 8 class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D8" value= 8 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+	</form>  
+</tr>
+<tr>
+	<form id="firstD6">
+		<th>D6:</th>
+		<td>
+ 			<input type="radio" name="D6" value= 6 class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D6" value= 6  class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D6" value= 6 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+  	</form>
+</tr> 
+<tr>
+	<form id="secondD6">
+		<th>D6:</th>
+		<td>
+ 			<input type="radio" name="D6" value= 6 class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D6" value= 6  class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D6" value= 6 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+  	</form>
+</tr>
+<tr>
+	<form >
+		<th>D6:</th>
+		<td>
+ 			<input type="radio" name="D6" value= 6 class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D6" value= 6 class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D6" value= 6 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+  	</form>
+</tr>
+<tr>
+	<form id="firstD4">
+		<th>D4:</th>
+		<td>
+ 			<input type="radio" name="D4" value= 4 class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D4" value= 4 class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D4" value= 4 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+	</form>
+</tr>
+<tr>
+	<form id="secondD4">
+		<th>D4:</th>
+		<td>
+ 			<input type="radio" name="D4" value= 4 class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D4" value= 4 class="defense"> <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D4" value= 4 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+	</form>
+</tr>
+<tr>
+	<form id="thirdD4">
+		<th>D4:</th>
+		<td>
+ 			<input type="radio" name="D4" value= 4 class="attack"> <img src="images/attack.png" alt="attack" ><br>
+ 		</td>
+ 		<td>
+  			<input type="radio" name="D4" value= 4 class="defense" > <img src="images/defense.png" alt="defense" ><br>
+  		</td>
+  		<td>
+  			<input type="radio" name="D4" value= 4 class="speed"> <img src="images/speed.png" alt="speed"><br>  
+  		</td>
+  	</form>
+</tr>
+</form>
+</table>
+<br>
+<div id="playerTwoResults">
+  <p></p>
+</div>
+</div>
+</div>
+</div>
+<br>
+<br>
+<center>
+<button onclick="startGame()">FIGHT!!!</button>
+<script type="text/javascript" src="diceGame.js"></script>
+</body>
+</html>

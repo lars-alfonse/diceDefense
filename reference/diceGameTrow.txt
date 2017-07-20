@@ -1,0 +1,88 @@
+/*function sortDiceForRoll(separatedDice){
+	var separatedDiceSet;
+	var diceValue;
+	var diceValuesWithCounts;
+	diceValuesWithCounts = [];
+	for (var i = 0; i < separatedDice.length; i++) {
+		var separatedDiceArray;
+		separatedDiceSet = separatedDice[i];
+		console.log(separatedDiceSet);
+		var diceOptions;
+		diceOptions = [20, 12, 10, 8, 6, 4];
+		for (var k = 0; k < diceOptions.length; k++) {
+		 	var dieValue;
+		 	var dieCount;
+		 	dieValue = diceOptions[k].toString();
+		 	dieCount = countDice(separatedDiceSet, dieValue);
+		 	diceValuesWithCounts.push(dieValue,dieCount);
+		 	console.log(dieValue, dieCount);
+		 } 
+	}
+	return diceValuesWithCounts;
+}*/
+function diceAllocation(){
+	var diceReserve;
+	diceReserve = [20, 12, 12, 10, 10, 8, 8, 6, 6, 6, 4, 4, 4]
+	var attackDice;
+	var currentDice;
+	var defenseDice;
+	var speedDice;
+	attackDice = [];
+	defenseDice = [];
+	speedDice = [];
+	var userDieChoice;
+	while (diceReserve.length > 0) {
+		userDieChoice = prompt("You currently have the following dice " + diceReserve + " where would you like the next die to go?" , "defense, speed, attack");
+		if (userDieChoice === "Defense" || userDieChoice === "defense"){
+			defenseDice.push(diceReserve[diceReserve.length - 1]);
+			diceReserve.pop();
+		}
+		else if (userDieChoice === "attack" || userDieChoice === "Attack"){
+			attackDice.push(diceReserve[diceReserve.length - 1]);
+			diceReserve.pop();
+		}
+		else if(userDieChoice === "Speed" || userDieChoice === "speed"){
+			speedDice.push(diceReserve[diceReserve.length - 1]);
+			diceReserve.pop();
+		}
+		else {
+			alert("incorrect Entry");
+		}
+	}
+	defenseDice = defenseDice.join(" ");
+	attackDice = attackDice.join(" ");
+	speedDice = speedDice.join(" ");
+	currentDice =  defenseDice + "/" + attackDice + "/" + speedDice;
+	return currentDice;
+}
+function changeDiceStringToNumbers(diceSet){
+	var numberDiceArray;
+	numberDiceArray = [];
+	for (var i = 0; i < diceSet.length; i++) {
+		numberDiceArray.push(parseInt(diceSet[i], 10));
+	}
+	return numberDiceArray;
+}
+}
+function sortDiceForRoll(currentDice){
+	var diceSet;
+	var diceValue;
+	var diceCount;
+	var currentDiceValueAndCount;
+	currentDiceValueAndCount = [];
+	diceSet = currentDice.split("/");
+	for (var i = 0; i < diceSet.length; i++) {
+		
+	}
+}
+function organizeDice(currentDice){
+	var separatedDice;
+	currentDice = diceAllocation();
+	separatedDice = separateDice(currentDice);
+	return separatedDice;
+}
+function separateDice(currentDice){
+	var diceSet;
+	diceSet = currentDice.split("/");
+	return diceSet;
+}
