@@ -154,7 +154,7 @@ function startGame(){
 	if (hitPoints[0] === 0){
 		alert("Player one loses");
 	}
-	else{
+	else if (hitPoints[1]=== 0) {
 		alert("player two loses");
 	}
 }
