@@ -1,7 +1,26 @@
 "use strict"
+window.onload = randomizeBackground();
+	var playerOne;
+	playerOne = {
+		attack: "",
+		defense: "",
+		speed: "",
+		initiative: "",
+		modifier: "",
+	}
+	var playerTwo;
+	playerTwo = {
+		attack: "",
+		defense: "",
+		speed: "",
+		initiative: "",
+		modifier: "",
+	}
 function add(sum, value){
 	return sum + value;
 }
+var hitPoints;
+hitPoints = [3,3];
 function diceRoll(dieValue){
 	var dieResult;
 	dieResult = Math.floor(Math.random()*dieValue + 1);
@@ -93,40 +112,23 @@ function damageStep(playerOne,  playerTwo, hitPoints){
 }
 function determineInitiative(firstSpeed, secondSpeed){
 	var initiative;
-	firstSpeed > secondSpeed ? initiative = 1 : initiative = 0;
+	initiative = firstSpeed > secondSpeed ? 1 : 0;
 	return initiative;
 }
 function determineAttackMultiplier(firstSpeed, secondSpeed){
 	var attackMultiplier;
 	attackMultiplier = firstSpeed / secondSpeed;
 	attackMultiplier <= 1 ? attackMultiplier = 1 : attackMultiplier = attackMultiplier;
+	attackMultiplier = attackMultiplier.toFixed(2)
 	return attackMultiplier;
 }
 function startGame(){
-	var hitPoints;
-	var playerOne;
-	playerOne = {
-		attack: "",
-		defense: "",
-		speed: "",
-		initiative: "",
-		modifier: "",
-	}
-	var playerTwo;
-	playerTwo = {
-		attack: "",
-		defense: "",
-		speed: "",
-		initiative: "",
-		modifier: "",
-	}
-	hitPoints = [3, 3];
+	var hitPointsPlaceholder;
 	var playerOneAttack;
 	var playerOneDefense;
 	var playerOneSpeed;
 	var playerOneSelector = "One";
 	var playerTwoSelector = "Two";
-	while (hitPoints[0] > 0 && hitPoints[1] > 0){
 	playerOneAttack = selectPlayerDice(playerOneSelector, "attack");
 	playerOneDefense = selectPlayerDice(playerOneSelector, "defense");
 	playerOneSpeed = selectPlayerDice(playerOneSelector, "speed");
@@ -149,13 +151,15 @@ function startGame(){
 	playerTwo.attack = playerTwoAttack;
 	playerTwo.defense = playerTwoDefense;
 	playerTwo.speed = playerTwoSpeed;
-	hitPoints = startCombat(playerOne, playerTwo, hitPoints);
-	}
+	startCombat(playerOne, playerTwo, hitPoints);
 	if (hitPoints[0] === 0){
 		alert("Player one loses");
 	}
 	else if (hitPoints[1]=== 0) {
 		alert("player two loses");
+	}	
+	else {
+		alert("Player One Health: " + hitPoints[0] + "  Player Two Health: " +hitPoints[1]);
 	}
 }
 function randomizeBackground(){
@@ -164,4 +168,3 @@ var body = document.getElementsByTagName('body')[0];
 var imageSelector = Math.floor(Math.random()*3);
 body.style.backgroundImage = "url('" +availableImages[imageSelector]+"')";
 }
-window.onload = randomizeBackground();
